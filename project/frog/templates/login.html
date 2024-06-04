@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+<body class="text-center">
+    <div class="container">
+        <form method="POST" class="form-register" action="/login" style="color:black">
+            <br>
+            <img class="mb-4" src="static/cute-green-frog-sticker.png" alt="test" style="width:200px;">
+            <br>
+            <h1 class="h3 mb-3 font-weight-normal text-light">
+                Please Login
+            </h1>
+            <label for="Username" class="form-label text-light">Username</label>
+            <input type="text" id="Username" name="Username" class="form-control">
+            <br>
+            <label for="Password" class="form-label text-light">Password</label>
+            <input type="password" id="Password" name="Password" class="form-control" aria-describedby="passwordHelpBlock">
+            <br>
+            {% for mesg in get_flashed_messages() %}
+                <h1 class="errmsg text-danger">{{ mesg }}</h1>
+            {% endfor %}
+            <br>
+            <button type="submit" class="btn btn-dark">Login</button>
+
+        </form>
+    </div>
+</body>
+<style>
+        body{
+        color: white;
+      }
+</style>
+{% endblock %}
